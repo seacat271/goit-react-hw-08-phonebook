@@ -1,12 +1,14 @@
-import { Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom";
+import { Navigation } from "../Navigation/Navigation";
+import { AuthNav } from "components/AuthNav/AuthNav";
+import { UserMenu } from "components/UserMenu/UserMenu";
 export const AppBar = () => {
     return (
         <>
-        <h1>This is AppBar</h1>
-        {/* <Navigation/>
+        <Navigation/>
         <AuthNav/>
-        <UserMenu/> */}
-<Outlet/>
+        <UserMenu/>
+
         </>
     )
 }

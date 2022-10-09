@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 export const ContainerGlobal = styled.div`
-  width: 1400px;
+  width: 1000px;
   margin: 20px auto;
   background-color: white;
   padding: 20px;
