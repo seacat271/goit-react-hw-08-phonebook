@@ -1,0 +1,5 @@
+export const RegisterView = () => {
+    return (
+        
+    )
+}
