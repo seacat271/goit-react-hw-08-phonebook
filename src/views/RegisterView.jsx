@@ -3,11 +3,15 @@ export const RegisterView = () => {
         <div>
         <h1>Login page</h1>
         <form>
-<label>
+<label> Name
 <input type="text" name = "name" value= "" />
-<input type="text" name = "email" value= "" />
-<input type="text" name = "password" value= "" />
+
 </label>
+<label> Email
+    <input type="text" name = "email" value= "" />
+</label>
+<label>Password
+    <input type="text" name = "password" value= "" /></label>
 <button type="submit">Register</button>
         </form>
     </div>

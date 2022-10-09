@@ -3,10 +3,12 @@ export const LoginView = () => {
         <div>
             <h1>Login page</h1>
             <form>
-<label>
-    <input type="text" name = "email" value= "" />
-    <input type="text" name = "password" value= "" />
-</label>
+    <label> Email
+        <input type="text" name = "email" value= "" />
+    </label>
+    <label>Password
+        <input type="text" name = "password" value= "" />
+    </label>
 <button type="submit">Enter</button>
             </form>
         </div>
