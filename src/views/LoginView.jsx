@@ -7,7 +7,7 @@ export const LoginView = () => {
     <input type="text" name = "email" value= "" />
     <input type="text" name = "password" value= "" />
 </label>
-<button type="submit"></button>
+<button type="submit">Enter</button>
             </form>
         </div>
     )

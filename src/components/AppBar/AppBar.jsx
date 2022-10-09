@@ -1,9 +1,9 @@
 export const AppBar = () => {
     return (
         <>
-        <Navigation/>
+        {/* <Navigation/>
         <AuthNav/>
-        <UserMenu/>
+        <UserMenu/> */}
         </>
     )
 }
