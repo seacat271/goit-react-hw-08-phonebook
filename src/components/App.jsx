@@ -1,7 +1,4 @@
-import ContactList from './ContactList/ContactList';
-import { Form } from './Form/Form';
-import Section from './Section/Section';
-import Filter from './Filter/Filter';
+
 import { ContainerGlobal } from './App.styled';
 import { Route, Routes } from 'react-router-dom';
 import { HomeView } from 'views/HomeView';
@@ -16,18 +13,24 @@ export const App = () => {
     <ContainerGlobal>
     <AppBar/>
       <Routes>
-        <Route exact path = "/" component ={HomeView} />
-        <Route exact path = "/register" component ={RegisterView} />
-        <Route exact path = "/login" component ={LoginView} />
-        <Route exact path = "/contacts" component ={ContactsView} />
-      {/* <Section title="Phonebook">
-        <Form />
-      </Section>
-      <Section title="Contacts">
-        <Filter />
-        <ContactList />
-      </Section> */}
+        <Route exact path = "/" element ={<HomeView/>} />
+        <Route path = "/register" element ={<RegisterView/>} />
+        <Route path = "/login" element ={<LoginView/>} />
+        <Route path = "/contacts" element ={<ContactsView/>} />
+
     </Routes>
     </ContainerGlobal>
   );
 }
+
+// <Routes>
+//   <Route path="/" element={<Layout/>}>
+//       <Route index element={<Home/>}/>
+//       <Route path="movies" element={<Movies/>}/>
+//       <Route path="movies/:movieId" element={<MovieDetails/>}>
+//         <Route path="cast" element={<Cast/>}/>
+//         <Route path="reviews" element={<Reviews/>}/>
+//       </Route>
+//       <Route path="*" element={<Navigate to="/"/>}></Route>
+//   </Route>
+// </Routes>
