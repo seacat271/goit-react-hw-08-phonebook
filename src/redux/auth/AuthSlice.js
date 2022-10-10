@@ -14,7 +14,7 @@ export const authSlice = createSlice({
     name: "auth",
     initialState,
     extraReducers: {
-        [register.fulfilled] (state, action) {
+    [register.fulfilled] (state, action) {
             return {...state, ...action.payload, isLoggedIn: true}
     },
     [login.fulfilled] (state, action) {
