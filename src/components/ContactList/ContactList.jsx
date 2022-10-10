@@ -20,10 +20,10 @@ const visibleContacts = useSelector(getVisibleContacts)
 if (!visibleContacts) return 
   return (
     <ItemList>
-      {visibleContacts.map(({ name, id, phone }) => (
+      {visibleContacts.map(({ name, id, number }) => (
         <Item key={id}>
           <ItemContainer>
-            {name}: <NameStyle>{phone}</NameStyle>
+            {name}: <NameStyle>{number}</NameStyle>
           </ItemContainer>
           <ButtonDelete onClick={() => dispatch(deleteContact(id))}>Delete</ButtonDelete>
         </Item>

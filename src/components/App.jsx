@@ -6,8 +6,16 @@ import { RegisterView } from 'views/RegisterView';
 import { ContactsView } from 'views/ContactsView';
 import { LoginView } from 'views/LoginView';
 import { AppBar } from './AppBar/AppBar';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refresh } from 'redux/auth/authOperations';
+
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+dispatch(refresh())
+  }, [dispatch])
 
   return (
     <ContainerGlobal>

@@ -19,8 +19,8 @@ export const addContact = createAsyncThunk("contact/add", async (contact, thunkA
               }
     
               if (items.some(
-                contact => contact.phone === data.phone)) {
-                alert(`${data.phone} is already in contacts`);
+                contact => contact.number === data.number)) {
+                alert(`${data.number} is already in contacts`);
                 return false;
               }
     }

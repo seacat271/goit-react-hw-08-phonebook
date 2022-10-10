@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { signupUser, loginUser, logoutUser } from "utils/customApi";
+import { signupUser, loginUser, logoutUser, refreshUser } from "utils/customApi";
 
 const token = {
     set (token) {
@@ -38,4 +38,18 @@ export const logout = createAsyncThunk("auth/logout", async () => {
     } catch (error) {
         
     }
+})
+export const refresh = createAsyncThunk('auth/refresh', async (_, thunkApi) => {
+const persistedToken = thunkApi.getState().auth.token;
+console.log(persistedToken === null)
+if(persistedToken === null) return;
+console.log(persistedToken)
+token.set(persistedToken);
+try {
+    const {data} = await refreshUser();
+    return data
+} catch (error) {
+    
+}
+
 })
