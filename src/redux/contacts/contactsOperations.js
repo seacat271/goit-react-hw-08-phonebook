@@ -1,5 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import { addContactFetch, deleteContactFetch, allContactFetch } from "utils/mockApi";
+import { addContactFetch, deleteContactFetch, allContactFetch } from "utils/customApi";
 
 export const addContact = createAsyncThunk("contact/add", async (contact, thunkApi) => {
     try {
