@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { register, login } from "./authOperations"
+import { register, login, logout } from "./authOperations"
 
 const initialState ={
     user: {
@@ -19,5 +19,8 @@ export const authSlice = createSlice({
     },
     [login.fulfilled] (state, action) {
         return {...state, ...action.payload, isLoggedIn: true}
+    },
+    [logout.fulfilled] (state) {
+        return {...state, ...initialState}
 },
 }})
