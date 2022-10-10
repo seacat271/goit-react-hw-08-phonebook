@@ -22,5 +22,5 @@ export const authSlice = createSlice({
     },
     [logout.fulfilled] (state) {
         return {...state, ...initialState}
-},
+    },
 }})
