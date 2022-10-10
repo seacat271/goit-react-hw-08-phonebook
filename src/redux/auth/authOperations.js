@@ -41,9 +41,7 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 })
 export const refresh = createAsyncThunk('auth/refresh', async (_, thunkApi) => {
 const persistedToken = thunkApi.getState().auth.token;
-console.log(persistedToken === null)
-if(persistedToken === null) return;
-console.log(persistedToken)
+if(persistedToken === null) return thunkApi.rejectWithValue();
 token.set(persistedToken);
 try {
     const {data} = await refreshUser();
