@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux"
 import { login } from "redux/auth/authOperations";
+import { useSelector } from "react-redux";
+import { authSelector } from "redux/auth/authSelectors";
 
 const LoginView = () => {
     const dispatch = useDispatch();
@@ -26,6 +28,9 @@ const LoginView = () => {
         setEmail("");
         setPassword("");
     }
+
+    const isLoggedIn = useSelector(authSelector);
+    if (isLoggedIn) return null;
 
     return (
         <div>

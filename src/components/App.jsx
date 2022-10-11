@@ -1,10 +1,12 @@
 
 import { ContainerGlobal } from './App.styled';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes} from 'react-router-dom';
 import { AppBar } from './AppBar/AppBar';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { useEffect, Suspense, lazy } from 'react';
 import { refresh } from 'redux/auth/authOperations';
+import { authSelector } from 'redux/auth/authSelectors';
+
 
 const RegisterView = lazy(() => import ("../views/RegisterView"));
 const LoginView = lazy(() => import ('../views/LoginView'));
@@ -17,17 +19,20 @@ export const App = () => {
 dispatch(refresh())
   }, [dispatch])
 
+  const isLoggedIn = useSelector(authSelector);
+const redirect = value => <Navigate to={`/${value}`} replace/>
+const path = "contacts"
 
   return (
     <ContainerGlobal>
-        
+         
     <AppBar/>
     <Suspense fallback={null}>
       <Routes>
         <Route exact path = "/" element ={<HomeView/>} />
-        <Route path = "/register" element ={<RegisterView/>} />
-        <Route path = "/login" element ={<LoginView/>} />
-        <Route path = "/contacts" element ={<ContactsView/>} />
+        <Route path = "/register" element ={isLoggedIn ? redirect(path) : <RegisterView/>} />
+        <Route path = "/login" element ={isLoggedIn ? redirect(path) : <LoginView/>} />
+        <Route path = "/contacts" element ={isLoggedIn ? <ContactsView/> : redirect() } />
     </Routes>
     </Suspense>
     </ContainerGlobal>
