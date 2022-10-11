@@ -1,15 +1,15 @@
 
 import { ContainerGlobal } from './App.styled';
 import { Route, Routes } from 'react-router-dom';
-import { HomeView } from 'views/HomeView';
-import { RegisterView } from 'views/RegisterView';
-import { ContactsView } from 'views/ContactsView';
-import { LoginView } from 'views/LoginView';
 import { AppBar } from './AppBar/AppBar';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import { refresh } from 'redux/auth/authOperations';
 
+const RegisterView = lazy(() => import ("../views/RegisterView"));
+const LoginView = lazy(() => import ('../views/LoginView'));
+const HomeView = lazy(() => import("../views/HomeView"));
+const ContactsView = lazy(() => import("../views/ContactsView"));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -17,16 +17,19 @@ export const App = () => {
 dispatch(refresh())
   }, [dispatch])
 
+
   return (
     <ContainerGlobal>
+        
     <AppBar/>
+    <Suspense fallback={null}>
       <Routes>
         <Route exact path = "/" element ={<HomeView/>} />
         <Route path = "/register" element ={<RegisterView/>} />
         <Route path = "/login" element ={<LoginView/>} />
         <Route path = "/contacts" element ={<ContactsView/>} />
-
     </Routes>
+    </Suspense>
     </ContainerGlobal>
   );
 }

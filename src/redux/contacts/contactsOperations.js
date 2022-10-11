@@ -35,11 +35,11 @@ try {
 }
 })
 
-export const fetchContacts = createAsyncThunk("contacts/get", async (_, {rejectWithValue}) => {
+export const fetchContacts = createAsyncThunk("contacts/get", async (_, thunkApi) => {
 try {
     const response = await allContactFetch();
     return response.data
 } catch (error) {
-    rejectWithValue(error)
+    thunkApi.rejectWithValue(error)
 }
 })

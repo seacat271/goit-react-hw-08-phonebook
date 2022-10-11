@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux"
 import { login } from "redux/auth/authOperations";
 
-export const LoginView = () => {
+const LoginView = () => {
     const dispatch = useDispatch();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -41,3 +41,5 @@ export const LoginView = () => {
     </div>
     )
 }
+
+export default LoginView;

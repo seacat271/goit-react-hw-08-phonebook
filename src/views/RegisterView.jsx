@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux"
 import { register } from "redux/auth/authOperations";
 
-export const RegisterView = () => {
+const RegisterView = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -48,3 +48,5 @@ export const RegisterView = () => {
     </div>
     )
 }
+
+export default RegisterView;

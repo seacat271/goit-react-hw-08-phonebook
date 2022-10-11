@@ -3,7 +3,7 @@ import { Form } from '../components/Form/Form';
 import Section from '../components/Section/Section';
 import Filter from '../components/Filter/Filter';
 
-export const ContactsView = () => {
+const ContactsView = () => {
     return(
         <>
         <Section title="Phonebook">
@@ -16,3 +16,5 @@ export const ContactsView = () => {
       </>
     )
 }
+
+export default ContactsView;
