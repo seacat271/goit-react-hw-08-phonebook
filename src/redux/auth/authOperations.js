@@ -11,43 +11,46 @@ const token = {
     }
 }
 
-export const register = createAsyncThunk("auth/register", async value => {
+export const register = createAsyncThunk("auth/register", async (value, {rejectWithValue}) => {
     try {
-        const {data } = await signupUser(value);
+        const {data} = await signupUser(value);
         token.set(data.token)
+        console.log("good")
         return data
+     
     } catch (error) {
-        
+        console.log(rejectWithValue(error))
+        return rejectWithValue(error)
     }
 })
 
-export const login = createAsyncThunk("auth/login", async value => {
+export const login = createAsyncThunk("auth/login", async (value, {rejectWithValue}) => {
     try {
         const {data } = await loginUser(value);
         token.set(data.token)
         return data
     } catch (error) {
-        
+        return rejectWithValue(error)
     }
 })
 
-export const logout = createAsyncThunk("auth/logout", async () => {
+export const logout = createAsyncThunk("auth/logout", async (_, {rejectWithValue}) => {
     try {
         await logoutUser();
         token.unset()
     } catch (error) {
-        
+        return rejectWithValue(error)
     }
 })
-export const refresh = createAsyncThunk('auth/refresh', async (_, thunkApi) => {
-const persistedToken = thunkApi.getState().auth.token;
-if(persistedToken === null) return thunkApi.rejectWithValue();
+export const refresh = createAsyncThunk('auth/refresh', async (_, {rejectWithValue, getState}) => {
+const persistedToken = getState().auth.token;
+if(persistedToken === null) return rejectWithValue();
 token.set(persistedToken);
 try {
     const {data} = await refreshUser();
     return data
 } catch (error) {
-    
+    return rejectWithValue(error)
 }
 
 })

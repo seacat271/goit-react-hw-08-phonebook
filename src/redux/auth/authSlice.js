@@ -24,6 +24,7 @@ export const authSlice = createSlice({
         return {...state, ...initialState}
     },
     [refresh.fulfilled] (state, action) {
-        return {...state, user: {...action.payload}, isLoggedIn: true}
+        return {...state, user: {...action.payload}, isLoggedIn: true, isRefreshing: false}
     },
+
 }})

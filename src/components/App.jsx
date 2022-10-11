@@ -20,8 +20,10 @@ dispatch(refresh())
   }, [dispatch])
 
   const isLoggedIn = useSelector(authSelector);
-const redirect = value => <Navigate to={`/${value}`} replace/>
-const path = "contacts"
+const redirect = value => <Navigate to={value} replace/>
+const contactPath = "/contacts";
+const homePath = "/"
+
 
   return (
     <ContainerGlobal>
@@ -29,10 +31,10 @@ const path = "contacts"
     <AppBar/>
     <Suspense fallback={null}>
       <Routes>
-        <Route exact path = "/" element ={<HomeView/>} />
-        <Route path = "/register" element ={isLoggedIn ? redirect(path) : <RegisterView/>} />
-        <Route path = "/login" element ={isLoggedIn ? redirect(path) : <LoginView/>} />
-        <Route path = "/contacts" element ={isLoggedIn ? <ContactsView/> : redirect() } />
+        <Route exact path = {homePath} element ={<HomeView/>} />
+        <Route path = "/register" element ={isLoggedIn ? redirect(contactPath) : <RegisterView/>} />
+        <Route path = "/login" element ={isLoggedIn ? redirect(contactPath) : <LoginView/>} />
+        <Route path = {contactPath} element ={isLoggedIn ? <ContactsView/> : redirect(homePath) } />
     </Routes>
     </Suspense>
     </ContainerGlobal>
