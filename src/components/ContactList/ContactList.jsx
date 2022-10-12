@@ -3,7 +3,7 @@ import { deleteContact, fetchContacts} from 'redux/contacts/contactsOperations';
 import { useEffect } from 'react';
 import { getVisibleContacts } from 'redux/contacts/contactsSelector';
 import { Delete } from '@mui/icons-material';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 
 const ContactList = () => {
 const dispatch = useDispatch();
@@ -15,13 +15,15 @@ useEffect(() => {
 const visibleContacts = useSelector(getVisibleContacts)
 if (!visibleContacts) return 
   return (
+    
     <ul>
       {visibleContacts.map(({ name, id, number }) => (
         <li key={id}>
           <div>
-            {name}: <span>{number}</span>
+            <Typography>{name}: <span>{number}</span></Typography>
+            
           </div>
-          <Button variant="outlined" startIcon={<Delete />} onClick={() => dispatch(deleteContact(id))}>Delete</Button>
+          <Button variant="contained" startIcon={<Delete />} onClick={() => dispatch(deleteContact(id))}>Delete</Button>
         </li>
       ))}
     </ul>
