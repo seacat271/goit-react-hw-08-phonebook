@@ -1,17 +1,13 @@
-import {
-  ItemList,
-  Item,
-  ItemContainer,
-  NameStyle,
-  ButtonDelete,
-} from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { deleteContact, fetchContacts} from 'redux/contacts/contactsOperations';
 import { useEffect } from 'react';
 import { getVisibleContacts } from 'redux/contacts/contactsSelector';
+import { Delete } from '@mui/icons-material';
+import { Button } from '@mui/material';
 
 const ContactList = () => {
 const dispatch = useDispatch();
+
 
 useEffect(() => {
   dispatch(fetchContacts())
@@ -19,16 +15,16 @@ useEffect(() => {
 const visibleContacts = useSelector(getVisibleContacts)
 if (!visibleContacts) return 
   return (
-    <ItemList>
+    <ul>
       {visibleContacts.map(({ name, id, number }) => (
-        <Item key={id}>
-          <ItemContainer>
-            {name}: <NameStyle>{number}</NameStyle>
-          </ItemContainer>
-          <ButtonDelete onClick={() => dispatch(deleteContact(id))}>Delete</ButtonDelete>
-        </Item>
+        <li key={id}>
+          <div>
+            {name}: <span>{number}</span>
+          </div>
+          <Button variant="outlined" startIcon={<Delete />} onClick={() => dispatch(deleteContact(id))}>Delete</Button>
+        </li>
       ))}
-    </ItemList>
+    </ul>
   );
 };
 

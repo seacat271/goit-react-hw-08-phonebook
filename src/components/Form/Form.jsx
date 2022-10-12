@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { FormInput, ButtonAdd, Input, Label } from './Form.styled';
 import { useDispatch} from 'react-redux/es/exports';
 import { addContact } from "../../redux/contacts/contactsOperations"
+import { Button } from '@mui/material';
 
-
-const Form = () => {
+export const Form = () => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const dispatch = useDispatch();
@@ -35,10 +34,10 @@ const Form = () => {
     setNumber("");
   };
 
-  return(<FormInput onSubmit={handleSubmit}>
-    <Label>
+  return(<form onSubmit={handleSubmit}>
+    <label>
       Name
-      <Input
+      <input
         value={name}
         onChange={handleChange}
         type="text"
@@ -47,10 +46,10 @@ const Form = () => {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
       />
-    </Label>
-    <Label>
+    </label>
+    <label>
       Number
-      <Input
+      <input
         value={number}
         onChange={handleChange}
         type="tel"
@@ -59,10 +58,8 @@ const Form = () => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       />
-    </Label>
-    <ButtonAdd type="submit">Add contact</ButtonAdd>
-  </FormInput>)
+    </label>
+    <Button type="submit">Add contact</Button>
+  </form>)
 }
-
-export { Form, ButtonAdd, Label, Input };
 

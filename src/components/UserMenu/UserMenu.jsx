@@ -1,13 +1,14 @@
 import { useSelector, useDispatch } from "react-redux";
-import { userName } from "redux/auth/authSelectors";
+import { userMail } from "redux/auth/authSelectors";
 import { logout } from "redux/auth/authOperations";
+import { Button, Typography } from "@mui/material";
 export const UserMenu = () => {
     const dispatch = useDispatch();
-    const login = useSelector(userName)
+    const mail = useSelector(userMail)
     return (
         <div>
-        <p>Hello, {login}</p>
-        <button onClick={() => dispatch(logout())}>Logout</button>
+        <Typography component="p">Hello, {mail}</Typography>
+        <Button onClick={() => dispatch(logout())}>Logout</Button>
       </div>
 
     )

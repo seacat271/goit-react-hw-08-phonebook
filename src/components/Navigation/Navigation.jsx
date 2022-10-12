@@ -1,10 +1,15 @@
 import { NavLink } from "react-router-dom";
+import { Toolbar, AppBar, Typography } from "@mui/material";
 
 
 export const Navigation = () => {
     return (
      <div>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/">
+            <Typography color="white" underline="none">
+                PhoneBook
+            </Typography>
+        </NavLink>
         <NavLink to="/contacts">Contacts</NavLink>
      </div>
 

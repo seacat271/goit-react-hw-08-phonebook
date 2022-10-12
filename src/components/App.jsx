@@ -1,7 +1,6 @@
 
-import { ContainerGlobal } from './App.styled';
 import { Navigate, Route, Routes} from 'react-router-dom';
-import { AppBar } from './AppBar/AppBar';
+import { Header } from './AppBar/AppBar';
 import { useDispatch, useSelector} from 'react-redux';
 import { useEffect, Suspense, lazy } from 'react';
 import { refresh } from 'redux/auth/authOperations';
@@ -26,9 +25,9 @@ const homePath = "/"
 
 
   return (
-    <ContainerGlobal>
+    <div>
          
-    <AppBar/>
+    <Header/>
     <Suspense fallback={null}>
       <Routes>
         <Route exact path = {homePath} element ={<HomeView/>} />
@@ -37,18 +36,6 @@ const homePath = "/"
         <Route path = {contactPath} element ={isLoggedIn ? <ContactsView/> : redirect(homePath) } />
     </Routes>
     </Suspense>
-    </ContainerGlobal>
+    </div>
   );
 }
-
-// <Routes>
-//   <Route path="/" element={<Layout/>}>
-//       <Route index element={<Home/>}/>
-//       <Route path="movies" element={<Movies/>}/>
-//       <Route path="movies/:movieId" element={<MovieDetails/>}>
-//         <Route path="cast" element={<Cast/>}/>
-//         <Route path="reviews" element={<Reviews/>}/>
-//       </Route>
-//       <Route path="*" element={<Navigate to="/"/>}></Route>
-//   </Route>
-// </Routes>

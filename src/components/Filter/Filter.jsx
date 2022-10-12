@@ -1,4 +1,3 @@
-import { Label, Input } from '../Form/Form';
 import { changeFilter } from 'redux/filter/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,10 +10,10 @@ const Filter = () => {
   };
   
   return (
-    <Label>
+    <label>
       Find contacts by name
-      <Input type="text" value={value} onChange={dispatchFilter} />
-    </Label>
+      <input type="text" value={value} onChange={dispatchFilter} />
+    </label>
   );
 };
 
