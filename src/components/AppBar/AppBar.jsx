@@ -4,13 +4,14 @@ import { UserMenu } from 'components/UserMenu/UserMenu';
 import { useSelector, useDispatch } from 'react-redux';
 import { userMail } from 'redux/auth/authSelectors';
 import { logout } from 'redux/auth/authOperations';
-import { authSelector } from 'redux/auth/authSelectors';
+import { loggedInSelector } from 'redux/auth/authSelectors';
 import { Toolbar, AppBar, Typography, Link, Button, Box, IconButton } from '@mui/material';
 import { NavLink as RouteLink } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
+
 export const Header = () => {
-  const isLoggedIn = useSelector(authSelector);
+  const isLoggedIn = useSelector(loggedInSelector);
   const dispatch = useDispatch();
   const mail = useSelector(userMail);
   return (

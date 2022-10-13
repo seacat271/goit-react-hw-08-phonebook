@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/authOperations';
 import { useSelector } from 'react-redux';
-import { authSelector } from 'redux/auth/authSelectors';
+import { loggedInSelector } from 'redux/auth/authSelectors';
 import { Box, Button, TextField, Typography, Container } from '@mui/material';
 
 const LoginView = () => {
@@ -30,7 +30,7 @@ const LoginView = () => {
     setPassword('');
   };
 
-  const isLoggedIn = useSelector(authSelector);
+  const isLoggedIn = useSelector(loggedInSelector);
   if (isLoggedIn) return null;
 
   return (
