@@ -1,6 +1,3 @@
-import { Navigation } from '../Navigation/Navigation';
-import { AuthNav } from 'components/AuthNav/AuthNav';
-import { UserMenu } from 'components/UserMenu/UserMenu';
 import { useSelector, useDispatch } from 'react-redux';
 import { userMail } from 'redux/auth/authSelectors';
 import { logout } from 'redux/auth/authOperations';
@@ -16,7 +13,7 @@ export const Header = () => {
   const mail = useSelector(userMail);
   return (
     <>
-      <AppBar  sx={{pr: "auto", pl: "auto" }}>
+      <AppBar position='static' sx={{pr: "auto", pl: "auto" }}>
         <Toolbar  sx={{boxSizing: "border-box", width: "1200px", mr: "auto", ml: "auto", pr: 4, pl: 4 }}>
             <Box component="div" sx={{
         display: 'flex',

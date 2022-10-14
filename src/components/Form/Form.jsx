@@ -22,6 +22,11 @@ export const Form = () => {
   }
 };
 
+const reset = () => {
+  setName("");
+  setNumber("");
+};
+
   const handleSubmit = event => {
     event.preventDefault();
 
@@ -29,10 +34,8 @@ export const Form = () => {
     reset()
   };
 
-  const reset = () => {
-    setName("");
-    setNumber("");
-  };
+
+
 
   return(<Box component="form" onSubmit={handleSubmit}>
     <label>

@@ -18,40 +18,40 @@ export const authSlice = createSlice({
     initialState,
     extraReducers: {
     [register.pending] (state) {
-            return {...state, isLoading: !state.isLoading, error: null,}
+            return {...state, isLoading: true, error: null,}
     },
     [register.fulfilled] (state, action) {
-            return {...state, ...action.payload, isLoggedIn: !state.isLoggedIn, isLoading: !state.isLoading,}
+            return {...state, ...action.payload, isLoggedIn: true, isLoading: false,}
     },
     [register.rejected] (state, action) {
-        return {...state, isLoading: !state.isLoading, error: action.payload}
+        return {...state, isLoading: false, error: action.payload}
     },
     [login.pending] (state) {
-        return {...state, isLoading: !state.isLoading, error: null,}
+        return {...state, isLoading: true, error: null,}
     },
     [login.fulfilled] (state, action) {
-        return {...state, ...action.payload, isLoggedIn: !state.isLoggedIn, isLoading: !state.isLoading,}
+        return {...state, ...action.payload, isLoggedIn: true, isLoading: false,}
     },
     [login.rejected] (state, action) {
-        return {...state, isLoading: !state.isLoading, error: action.payload}
+        return {...state, isLoading: false, error: action.payload}
     },
     [logout.pending] (state) {
-        return {...state, isLoading: !state.isLoading, error: null,}
+        return {...state, isLoading: true, error: null,}
     },
     [logout.fulfilled] (state) {
         return {...state, ...initialState}
     },
     [logout.rejected] (state, action) {
-        return {...state, isLoading: !state.isLoading, error: action.payload}
+        return {...state, isLoading: false, error: action.payload}
     },
     [refresh.pending] (state) {
-        return {...state, isLoading: !state.isLoading, error: null,}
+        return {...state, isLoading: true, error: null,}
     },
     [refresh.fulfilled] (state, action) {
-        return {...state, user: {...action.payload}, isLoggedIn: !state.isLoggedIn, isLoading: !state.isLoading,}
+        return {...state, user: {...action.payload}, isLoggedIn: true, isLoading: false,}
     },
     [refresh.rejected] (state, action) {
-        return {...state, isLoading: !state.isLoading, error: action.payload}
+        return {...state, isLoading: false, error: action.payload}
     },
 
 }})
