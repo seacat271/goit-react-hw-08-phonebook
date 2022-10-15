@@ -1,16 +1,59 @@
 import ContactList from '../components/ContactList/ContactList';
 import { IForm } from '../components/Form/IForm';
 import Filter from '../components/Filter/Filter';
-import { Container } from '@mui/material';
+import { Container, Box, Typography } from '@mui/material';
 
 const ContactsView = () => {
-    return(
-        <Container sx={{display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#e0f0f9", height: "100vh", p: 2,  }}>
-        <IForm buttonText ={"Add contact"}/>
-        <Filter />
-        <ContactList />
-      </Container>
-    )
-}
+  return (
+    <Container
+    sx={{
+      height: '92vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      p: 2,
+      gap: '20px',
+    }}
+    >
+      <Box component="div"
+        sx={{
+          width: '33%',
+          height: '70%',
+          textAlign: 'center',
+          backgroundColor: '#ffffff',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          p: 2,
+          gap: '20px',
+          borderRadius: "4px",
+        }}>
+        <Typography variant="h4" >
+          Add contact
+        </Typography>
+      <IForm buttonText={'Add contact'} />
+      </Box>
+      <Box component="div"
+        sx={{
+          width: '60%',
+          height: '70%',
+          textAlign: 'center',
+          backgroundColor: '#ffffff',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          p: 2,
+          gap: '20px',
+          borderRadius: "4px",
+        }}>
+      <Filter />
+      <ContactList />
+      </Box>
+      
+    </Container>
+  );
+};
 
 export default ContactsView;

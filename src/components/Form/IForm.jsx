@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { login, register } from 'redux/auth/authOperations';
 import { addContact } from 'redux/contacts/contactsOperations';
 
-export const IForm = ({buttonText}) => {
+export const IForm = ({buttonText, backgroundColor}) => {
 const dispatch = useDispatch();
 
 const [name, setName] = useState('');
@@ -50,6 +50,7 @@ fieldsCreator(buttonText)
 
 const {fields, action, reset} = params;
 
+console.log(backgroundColor)
 
 
 
@@ -76,7 +77,7 @@ const handleSubmit = event => {
 reset()
 };
 
-    return (<Box component="form" onSubmit={handleSubmit}>
+    return (<Box component="form" onSubmit={handleSubmit} sx={{gap: "20px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "50%",}}>
       {Object.keys(fields).map(field => {
            return <label key= {field}>
            <TextField
