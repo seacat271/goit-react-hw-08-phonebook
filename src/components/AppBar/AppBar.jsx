@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { userMail } from 'redux/auth/authSelectors';
 import { logout } from 'redux/auth/authOperations';
 import { loggedInSelector } from 'redux/auth/authSelectors';
-import { Toolbar, AppBar, Typography, Link, Button, Box, IconButton } from '@mui/material';
+import { Toolbar, AppBar, Typography, Link, Box, IconButton } from '@mui/material';
 import { NavLink as RouteLink } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
@@ -13,7 +13,7 @@ export const Header = () => {
   const mail = useSelector(userMail);
   return (
     <>
-      <AppBar position='static' sx={{pr: "auto", pl: "auto" }}>
+      <AppBar position='relative' sx={{pr: "auto", pl: "auto" }}>
         <Toolbar  sx={{boxSizing: "border-box", width: "1200px", mr: "auto", ml: "auto", pr: 4, pl: 4 }}>
             <Box component="div" sx={{
         display: 'flex',

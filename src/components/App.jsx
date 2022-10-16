@@ -6,6 +6,7 @@ import { useEffect, Suspense, lazy } from 'react';
 import { refresh } from 'redux/auth/authOperations';
 import { loggedInSelector, refreshingSelector, loadingSelector } from 'redux/auth/authSelectors';
 import { Loader } from 'utils/loader';
+import { Box } from '@mui/system';
 
 
 const RegisterView = lazy(() => import ("../views/RegisterView"));
@@ -31,10 +32,10 @@ const loginPath = "/login"
 
   return (
     <div>
-    
     <Header/>
-    <div style={{display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#e0f0f9", height: "100vh", marginRight: "auto", marginLeft: "auto" , width: "1200px"}}>
     {isLoading && <Loader/>}
+    <div style={{display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#e0f0f9", height: "100vh", marginRight: "auto", marginLeft: "auto" , width: "1200px"}}>
+   
     <Suspense fallback={null}>
       {isLoggedIn 
       ? (<Routes>
