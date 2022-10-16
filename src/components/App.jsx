@@ -6,7 +6,6 @@ import { useEffect, Suspense, lazy } from 'react';
 import { refresh } from 'redux/auth/authOperations';
 import { loggedInSelector, refreshingSelector, loadingSelector } from 'redux/auth/authSelectors';
 import { Loader } from 'utils/loader';
-import { Box } from '@mui/system';
 
 
 const RegisterView = lazy(() => import ("../views/RegisterView"));
