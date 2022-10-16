@@ -25,10 +25,7 @@ const isLoading = useSelector(loadingSelector);
 const redirect = value => <Navigate to={value} replace/>
 const contactPath = "/contacts";
 const homePath = "/";
-const loginPath = "/login"
-
-
-
+const loginPath = "/login";
   return (
     <div>
     <Header/>

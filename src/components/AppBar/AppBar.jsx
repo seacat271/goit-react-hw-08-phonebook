@@ -13,7 +13,7 @@ export const Header = () => {
   const mail = useSelector(userMail);
   return (
     <>
-      <AppBar position='relative' sx={{pr: "auto", pl: "auto" }}>
+      <AppBar position='absolute' sx={{pr: "auto", pl: "auto" }}>
         <Toolbar  sx={{boxSizing: "border-box", width: "1200px", mr: "auto", ml: "auto", pr: 4, pl: 4 }}>
             <Box component="div" sx={{
         display: 'flex',

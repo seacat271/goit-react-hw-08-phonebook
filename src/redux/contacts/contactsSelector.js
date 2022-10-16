@@ -2,7 +2,6 @@ import { createSelector } from "@reduxjs/toolkit";
 export const getItems = state => state.contacts.items;
 export const getFilter = state => state.filter;
 
-
   export const getVisibleContacts = createSelector(
     [getItems, getFilter],
     (items, filter) => {

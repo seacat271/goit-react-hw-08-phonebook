@@ -47,7 +47,5 @@ export const store = configureStore({
   preLoadedState,
 });
 
-
-
 export const persistor = persistStore(store);
 

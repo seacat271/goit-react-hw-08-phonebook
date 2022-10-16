@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import { login, register } from 'redux/auth/authOperations';
 import { addContact } from 'redux/contacts/contactsOperations';
 
-export const IForm = ({buttonText, backgroundColor}) => {
+
+export const IForm = ({buttonText}) => {
 const dispatch = useDispatch();
 
 const [name, setName] = useState('');
@@ -50,10 +51,6 @@ fieldsCreator(buttonText)
 
 const {fields, action, reset} = params;
 
-console.log(backgroundColor)
-
-
-
 const handleChange = event => {
   const { name, value } = event.target;
   switch (name) {
@@ -97,3 +94,4 @@ reset()
         </Button>
       </Box>)
 }
+

@@ -1,5 +1,6 @@
 import { Box, Typography, Container } from '@mui/material';
 import { IForm } from 'components/Form/IForm';
+import PropTypes from 'prop-types'
 
 const RegisterView = () => {
   return (
@@ -37,3 +38,7 @@ const RegisterView = () => {
 };
 
 export default RegisterView;
+
+RegisterView.propTypes = {
+  buttonText: PropTypes.string.isRequired,
+}
