@@ -1,6 +1,6 @@
 import { changeFilter } from 'redux/filter/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { TextField } from '@mui/material';
+import { TextField, Typography, Box } from '@mui/material';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -11,8 +11,7 @@ const Filter = () => {
   };
 
   return (
-    <label>
-      Find contacts by name
+    <Box component="label" sx={{display: "flex", justifyContent: "center", width: "70%"}}>
       <TextField
        
         type="search"
@@ -21,8 +20,12 @@ const Filter = () => {
         variant="outlined"
         label="Search"
         id="outlined-password-input"
+        sx={{marginRight: "10px"}}
       />
-    </label>
+      <Typography variant="h5">
+      Find contacts by name
+      </Typography>
+    </Box>
   );
 };
 
