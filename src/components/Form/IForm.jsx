@@ -3,6 +3,7 @@ import { useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { login, register } from 'redux/auth/authOperations';
 import { addContact } from 'redux/contacts/contactsOperations';
+import PropTypes from 'prop-types'
 
 
 export const IForm = ({buttonText}) => {
@@ -93,5 +94,9 @@ reset()
           <Typography>{buttonText}</Typography>
         </Button>
       </Box>)
+}
+
+ContactsView.propTypes = {
+  buttonText: PropTypes.string.isRequired,
 }
 

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { loggedInSelector } from 'redux/auth/authSelectors';
 import { Box, Typography, Container } from '@mui/material';
 import { IForm } from 'components/Form/IForm';
-import PropTypes from 'prop-types'
+
 
 const LoginView = () => {
   const isLoggedIn = useSelector(loggedInSelector);
@@ -48,6 +48,4 @@ const LoginView = () => {
 
 export default LoginView;
 
-LoginView.propTypes = {
-  buttonText: PropTypes.string.isRequired,
-}
+

@@ -2,7 +2,7 @@ import ContactList from '../components/ContactList/ContactList';
 import { IForm } from '../components/Form/IForm';
 import Filter from '../components/Filter/Filter';
 import { Container, Box, Typography } from '@mui/material';
-import PropTypes from 'prop-types'
+
 
 const ContactsView = () => {
   return (
@@ -59,6 +59,4 @@ const ContactsView = () => {
 
 export default ContactsView;
 
-ContactsView.propTypes = {
-  buttonText: PropTypes.string.isRequired,
-}
+
