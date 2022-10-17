@@ -96,7 +96,7 @@ reset()
       </Box>)
 }
 
-ContactsView.propTypes = {
+IForm.propTypes = {
   buttonText: PropTypes.string.isRequired,
 }
 
